@@ -1,2 +1,2 @@
 # Gadgeothek-Miniprojekt
-Just for learning.
+Made for learning purposes.
