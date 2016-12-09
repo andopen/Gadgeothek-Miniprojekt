@@ -58,6 +58,9 @@
     <Compile Include="Ausleihe.xaml.cs">
       <DependentUpon>Ausleihe.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gadgets.xaml.cs">
+      <DependentUpon>Gadgets.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reservation.xaml.cs">
       <DependentUpon>Reservation.xaml</DependentUpon>
     </Compile>
@@ -65,6 +68,10 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="Ausleihe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gadgets.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
