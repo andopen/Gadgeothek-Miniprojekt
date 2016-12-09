@@ -30,7 +30,8 @@ namespace WpfApplication1
 
             List<Loan> loans = lib.GetAllLoans();
 
-            dgLoans.ItemsSource = loans;
+           // dgLoans.ItemsSource = loans;
+           
 
             List<TestVO> list1 = new List<TestVO>();
             list1.Add(new TestVO() { KundenNr = 1, Name = "John Doe", Reservation = "iphone 7", Ausleihen = "iphone, blablub" });

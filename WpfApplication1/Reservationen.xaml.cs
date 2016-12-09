@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfApplication1
 {
     /// <summary>
-    /// Interaction logic for ReservationAusleihe.xaml
+    /// Interaction logic for Reservationen.xaml
     /// </summary>
-    public partial class Reservation : UserControl
+    public partial class Reservationen : UserControl
     {
-        public Reservation()
+        public Reservationen()
         {
             InitializeComponent();
         }

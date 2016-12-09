@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfApplication1.Gadgets"
+﻿<UserControl x:Class="WpfApplication1.ReservationenAusleihen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         >
-    <Grid>
-        <Label>dfkjsdfksjdfsldjk</Label>
-    </Grid>
+    <StackPanel>
+        <local:Reservationen/>
+        <local:Ausleihen/>
+    </StackPanel>
 </UserControl>

@@ -10,6 +10,7 @@
         <Grid>
             <TabControl>
                 <TabItem Header="Gadgets">
+                    <local:Gadgets/>
                 </TabItem>
                 <TabItem Header="Ausleihe">
                     <local:AusleiheUebersicht/>

@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApplication1
 {
     /// <summary>
-    /// Interaction logic for Gadgets.xaml
+    /// Interaction logic for Ausleihen.xaml
     /// </summary>
-    public partial class Gadgets : UserControl
+    public partial class Ausleihen : UserControl
     {
-        public Gadgets()
+        public Ausleihen()
         {
             InitializeComponent();
         }

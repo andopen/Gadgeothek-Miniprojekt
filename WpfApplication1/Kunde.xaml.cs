@@ -17,9 +17,9 @@ namespace WpfApplication1
     /// <summary>
     /// Interaction logic for Gadgets.xaml
     /// </summary>
-    public partial class Gadgets : UserControl
+    public partial class Kunde : UserControl
     {
-        public Gadgets()
+        public Kunde()
         {
             InitializeComponent();
         }

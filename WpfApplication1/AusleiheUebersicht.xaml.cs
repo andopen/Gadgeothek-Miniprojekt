@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfApplication1
 {
     /// <summary>
-    /// Interaction logic for Ausleihe.xaml
+    /// Interaction logic for AusleiheUebersicht.xaml
     /// </summary>
-    public partial class Ausleihe : UserControl
+    public partial class AusleiheUebersicht : UserControl
     {
-        public Ausleihe()
+        public AusleiheUebersicht()
         {
             InitializeComponent();
         }
