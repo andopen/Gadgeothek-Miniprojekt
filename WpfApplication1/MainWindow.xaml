@@ -23,6 +23,7 @@
                 </DataGrid.RowDetailsTemplate>
             </DataGrid>
         </Grid>
-        <local:ReservationAusleihe/>
+        <local:Reservation/>
+        <local:Ausleihe/>
     </Grid>
 </Window>
