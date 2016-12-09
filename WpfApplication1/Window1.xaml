@@ -10,7 +10,7 @@
         <DataGrid Name="dgLoans" AutoGenerateColumns="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="KundenNr" Binding="{Binding KundenNr}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding KundenName}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Customer.Name}"/>
                 <DataGridTextColumn Header="Reservation" Binding="{Binding Reservation}"/>
                 <DataGridTextColumn Header="Ausleihen" Binding="{Binding Ausleihen}"/>
                 <DataGridCheckBoxColumn Header="Hat überfällige" Binding="{Binding HatUb}"/>

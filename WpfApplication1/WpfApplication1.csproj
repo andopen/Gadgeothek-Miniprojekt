@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AusleiheUebersicht.xaml.cs">
+      <DependentUpon>AusleiheUebersicht.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ausleihe.xaml.cs">
       <DependentUpon>Ausleihe.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,10 @@
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="AusleiheUebersicht.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Ausleihe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
