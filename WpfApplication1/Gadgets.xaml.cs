@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,17 @@ namespace WpfApplication1
         public Gadgets()
         {
             InitializeComponent();
+
+            LibraryAdminService lib = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch/");
+
+            List<Gadget> gadgets = lib.GetAllGadgets();
+
+        }
+        public void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= TextBox_GotFocus;
         }
     }
 }
