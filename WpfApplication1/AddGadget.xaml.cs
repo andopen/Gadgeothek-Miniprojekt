@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace WpfApplication1
         public AddGadget()
         {
             InitializeComponent();
+            Gadget newestGadge = new Gadget( NamensEingabe );
         }
     }
 }

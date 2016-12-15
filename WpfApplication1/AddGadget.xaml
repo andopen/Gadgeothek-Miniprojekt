@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="AddGadget" Height="300" Width="300">
+        Title="Gadget hinzufügen" Height="155.32" Width="300">
     <Grid>
-        
+        <TextBlock Text="Gadgetname eingeben" 
+                   Margin="59,10,77,44">
+        </TextBlock>
+        <TextBox Name="NamensEingabe" 
+                 Text="Name eintippen" 
+                 Margin="59,39,77,44"/>
+        <Button Name="GadgetErgänzen"
+                Margin="110,85,126,10">
+            <TextBlock Text="OK"/>
+        </Button>
     </Grid>
 </Window>
