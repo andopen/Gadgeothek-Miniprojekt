@@ -7,13 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
         <local:Kunde HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-        <local:ReservationenAusleihen Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

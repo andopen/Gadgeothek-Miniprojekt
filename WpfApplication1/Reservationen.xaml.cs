@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,10 @@ namespace WpfApplication1
         public Reservationen()
         {
             InitializeComponent();
+            LibraryAdminService library = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch/");
+            List<Reservation> reserved = library.GetAllReservations();
+
+            ReservationList.ItemsSource = reserved;
         }
     }
 }
