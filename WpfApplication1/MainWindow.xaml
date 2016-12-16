@@ -13,7 +13,7 @@
                     <local:Gadgets/>
                 </TabItem>
                 <TabItem Header="Ausleihe">
-                    <local:AusleiheUebersicht/>
+                    <local:LoanControl/>
                 </TabItem>
             </TabControl>
         </Grid>

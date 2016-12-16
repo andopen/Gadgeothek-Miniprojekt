@@ -58,38 +58,21 @@
     <Compile Include="AddGadget.xaml.cs">
       <DependentUpon>AddGadget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AusleiheUebersicht.xaml.cs">
-      <DependentUpon>AusleiheUebersicht.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Ausleihen.xaml.cs">
-      <DependentUpon>Ausleihen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Kunde.xaml.cs">
-      <DependentUpon>Kunde.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Gadgets.xaml.cs">
       <DependentUpon>Gadgets.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="LoanControl.xaml.cs">
+      <DependentUpon>LoanControl.xaml</DependentUpon>
     </Compile>
     <Page Include="AddGadget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AusleiheUebersicht.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Ausleihen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Kunde.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Gadgets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoanControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,10 +88,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

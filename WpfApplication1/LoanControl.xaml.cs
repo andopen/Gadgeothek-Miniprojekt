@@ -3,41 +3,45 @@ using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Configuration;
+using System;
 
 namespace WpfApplication1
 {
     /// <summary>
-    /// Interaction logic for Gadgets.xaml
+    /// Interaktionslogik für LoanControl.xaml
     /// </summary>
-    public partial class Kunde : UserControl
+    public partial class LoanControl : UserControl
     {
+        public ObservableCollection<Loan> LoansItem { get; set; }
 
+        public String url = "http://mge7.dev.ifs.hsr.ch/";
 
-        public ObservableCollection<Loan> loans { get; set; }
-
-
-        public Kunde()
+        public LoanControl()
         {
             InitializeComponent();
-            var url = "http://mge7.dev.ifs.hsr.ch/";
+            LoansItem = new ObservableCollection<Loan>();
+            setData();
+            initWebSocket();
+            DataContext = this;
+        }
 
-            LibraryAdminService lib = new LibraryAdminService(url);
+        public void setData()
+        {
+            LoansItem.Clear();
+            List<Loan> loanList = new LibraryAdminService(url).GetAllLoans();
+            foreach(Loan loan in loanList)
+            {
+                if (loan.IsLent)
+                {
+                    LoansItem.Add(loan);
+                }
+            }            
+        }
 
-            loans = new ObservableCollection<Loan>(lib.GetAllLoans());
-
-           
+        public void initWebSocket()
+        {
             // web socket connection to listen to changes:
             var client = new ch.hsr.wpf.gadgeothek.websocket.WebSocketClient(url);
             client.NotificationReceived += (o, e) =>
@@ -45,16 +49,11 @@ namespace WpfApplication1
                 // demonstrate how these updates could be further used
                 if (e.Notification.Target == typeof(Loan).Name.ToLower())
                 {
-                    loans = new ObservableCollection<Loan>(lib.GetAllLoans());
+                    setData();
                 }
             };
-
             // spawn a new background thread in which the websocket client listens to notifications from the server
             client.ListenAsync();
-
-
-            DataContext = this;
-            
         }
     }
 }

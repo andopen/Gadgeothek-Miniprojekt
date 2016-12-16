@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ch.hsr.wpf.gadgeothek.domain
 {
-    public class Loan
+    public class Loan : ObservableCollection<Loan>
     {
 
         public string Id { get; set; }
