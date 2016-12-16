@@ -7,64 +7,48 @@
         mc:Ignorable="d"
         Title="Gadget hinzufügen" Height="322.341" Width="361.702">
     <Grid>
-        <TextBlock Text="Name: " 
-                   Height="30"
-                   Width="100"
-                   Margin="32,55,222,220" RenderTransformOrigin="0.535,1.727">
-        </TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="290*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Name: "
+                   Margin="33,30,177,229.711" RenderTransformOrigin="0.535,1.727"/>
         <TextBox Name="NamensEingabe" 
                  Text="{Binding EditedGadget.Name}"
-                 Height="30"
-                 Width="180"
-                 Margin="137,55,37,206"/>
-        <TextBlock Text="Hersteller: " 
-                   Height="30"
-                   Width="100"
-                   Margin="32,90,222,185" RenderTransformOrigin="0.535,1.727">
-        </TextBlock>
-        <TextBox Name="Hersteller" 
-                 Height="30"
+                 Margin="139,30,1,229.711"/>
+        <TextBlock Text="Hersteller: "
+                   Margin="33,75,177,184.711" RenderTransformOrigin="0.535,1.727"/>
+        <TextBox Name="Hersteller"
                  Text="{Binding EditedGadget.Manufacturer}"
-                 Width="180"
-                 Margin="139,89,35,172"/>
-        <TextBlock Text="Zustand: " 
-                   Height="30"
-                   Width="100"
-                   Margin="32,125,222,150" RenderTransformOrigin="0.535,1.727">
-        </TextBlock>
-        <ComboBox Name="GadgetCondition" 
-                 Height="30"
-                 Width="180"                 
-                 Margin="139,124,35,137">
+                 Margin="139,75,1,184.711"/>
+        <TextBlock Text="Zustand: "
+                   Margin="33,130,177,129.711" RenderTransformOrigin="0.535,1.727"/>
+        <ComboBox Name="GadgetCondition"                 
+                 Margin="139,130,1,129.711">
             <ComboBoxItem IsSelected="True">New</ComboBoxItem>
             <ComboBoxItem>Good</ComboBoxItem>
             <ComboBoxItem>Damaged</ComboBoxItem>
             <ComboBoxItem>Waste</ComboBoxItem>
             <ComboBoxItem>Lost</ComboBoxItem>
         </ComboBox>
-        <TextBlock Text="Preis: " 
-                   Height="30"
-                   Width="100"
-                   Margin="32,160,222,115" RenderTransformOrigin="0.535,1.727">
-        </TextBlock>
+        <TextBlock Text="Preis: "
+                   Margin="33,175,177,84.711" RenderTransformOrigin="0.535,1.727"/>
         <TextBox Name="Preis" 
                  KeyDown="Preis_KeyDown"
                  Text="{Binding EditedGadget.Price}"
-                 Height="30"
-                 Width="180"
-                 Margin="139,159,35,102"/>
+                 Margin="139,175,1,84.711"/>
         <Button Name="Abbrechen"
                 Click="AbbrechenButton_Click"
-                Height="30"
-                Width="100"
-                Margin="32,205,222,36">
+                Margin="34,231,176,28.711">
             <TextBlock Text="Abbrechen"/>
         </Button>
         <Button Name="GadgetErgänzen"
                 Click="OkButton_Click"
-                Height="30"
-                Width="100"
-                Margin="219,205,35,36">
+                Margin="218,231,0,28.711">
             <TextBlock Text="OK"/>
         </Button>
     </Grid>
