@@ -10,7 +10,7 @@
         <Grid>
             <TabControl>
                 <TabItem Header="Gadgets">
-                    <local:Gadgets/>
+                    <local:GadgetControl/>
                 </TabItem>
                 <TabItem Header="Ausleihe">
                     <local:LoanControl/>

@@ -14,14 +14,14 @@ namespace WpfApplication1
     /// </summary>
     public partial class LoanControl : UserControl
     {
-        public ObservableCollection<Loan> LoansItem { get; set; }
+        public ObservableCollection<Loan> LoanItem { get; set; }
 
         public String url = "http://mge7.dev.ifs.hsr.ch/";
 
         public LoanControl()
         {
             InitializeComponent();
-            LoansItem = new ObservableCollection<Loan>();
+            LoanItem = new ObservableCollection<Loan>();
             setData();
             initWebSocket();
             DataContext = this;
@@ -29,13 +29,13 @@ namespace WpfApplication1
 
         public void setData()
         {
-            LoansItem.Clear();
+            LoanItem.Clear();
             List<Loan> loanList = new LibraryAdminService(url).GetAllLoans();
             foreach(Loan loan in loanList)
             {
                 if (loan.IsLent)
                 {
-                    LoansItem.Add(loan);
+                    LoanItem.Add(loan);
                 }
             }            
         }
