@@ -14,7 +14,7 @@
             <StackPanel Width="Auto" DockPanel.Dock="Top" Height="20" HorizontalAlignment="Center" Orientation="Horizontal">
                 <TextBox  Margin="10,0,10,0" Text="Serach" HorizontalAlignment="Center" Width="100" Background="Transparent" GotFocus="TextBox_GotFocus" />
                 <Button Name="AddGadget"  Margin="10,0,10,0" HorizontalAlignment="Center" Width="Auto" Height="20" OpacityMask="Black" Click="AddGadget_Click" >Gadget hinzüfugen</Button>
-                <Button Margin="10,0,10,0" HorizontalAlignment="Center" Width="Auto" IsEnabled="False" Content="Gadget bearbeiten"/>
+                <Button Name="DeleteGadget" Margin="10,0,10,0" HorizontalAlignment="Center" Width="Auto" IsEnabled="False" Content="Gadget bearbeiten" Click="Button_Delete"/>
             </StackPanel>
 
             <Grid>
@@ -26,7 +26,7 @@
                         <DataGridTextColumn Width="100" Header="Preis" Binding="{Binding Gadget.Price}"/>
                         <DataGridTextColumn Width="100" Header="Zustand" Binding="{Binding Gadget.Condition}"/>
                         <DataGridTextColumn Width="100" Header="Verfügbar ab" Binding="{Binding OverDueDate}"/>
-                        <DataGridTextColumn Width="100" Header="Ausgeleihen an" Binding="{Binding Customer}"/>
+                        <DataGridTextColumn Width="100" Header="Ausgeleihen an" Binding="{Binding Customer.Name}" />
 
                     </DataGrid.Columns>
                     

@@ -2,6 +2,7 @@
 using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -37,6 +38,8 @@ namespace WpfApplication1
 
         }
 
+        public ObservableCollection<Gadget> GadgetItems { get; set; }
+
         private void AddGadget_Click(object sender, RoutedEventArgs e)
         {
             var gadgetWindow = new AddGadget();
@@ -50,6 +53,31 @@ namespace WpfApplication1
             {
                 Console.WriteLine("Alles ist abgebrochen");
 
+            }
+        }
+
+        private void Button_Delete(object sender, RoutedEventArgs e)
+        {
+            if (GadgetListBox.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            Gadget selectedGadget = (Gadget)GadgetListBox.SelectedValue;
+            string messageBoxText = "Do you want to delete " + selectedGadget.ToString() + " ?";
+
+            if (MessageBox.Show(messageBoxText, "Security", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                var url = ConfigurationManager.AppSettings["server"];
+                var service = new LibraryAdminService(url);
+                if (!service.DeleteGadget(selectedGadget))
+                {
+                    System.Console.WriteLine("Could not delete Gadget " + GadgetListBox.SelectedValue.ToString());
+                }
+                else
+                {
+                    bool ret = GadgetItems.Remove(selectedGadget);
+                }
             }
         }
 
