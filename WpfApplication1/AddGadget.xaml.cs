@@ -23,7 +23,60 @@ namespace WpfApplication1
         public AddGadget()
         {
             InitializeComponent();
-            Gadget newestGadge = new Gadget( NamensEingabe );
+
+            
         }
+        private void AbbrechenButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NamensEingabe.Equals(""))
+            {
+                MessageBox.Show("Bitte Namen eingeben");
+            } else if (Hersteller.Equals(""))
+            {
+                MessageBox.Show("Bitte Hersteller eingeben");
+            } else  if (Condition.Equals(""))
+            {
+                MessageBox.Show("Bitte Zusand eingeben");
+            }
+            else
+            {
+                Gadget newestGadget = new Gadget("");
+                newestGadget.Name = NamensEingabe.ToString();
+                newestGadget.Manufacturer = Hersteller.ToString();
+                if (Condition.Equals("New"))
+                {
+                    // TODO Condition anpassen
+                    newestGadget.Condition = 
+                }
+            }
+            
+        }
+        private List<Key> AllowedKeys = new List<Key>()
+        {
+            Key.D0,
+            Key.D1,
+            Key.D2,
+            Key.D3,
+            Key.D4,
+            Key.D5,
+            Key.D6,
+            Key.D7,
+            Key.D8,
+            Key.D9,
+            Key.Back,
+            Key.Decimal //TODO überprüfen ob Punkt bsp. 20.50
+        };
+
+        private void Preis_KeyDown(object sender, KeyEventArgs e)
+        {
+ 
+                if (!AllowedKeys.Contains(e.Key))
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+        }
+
     }
 }

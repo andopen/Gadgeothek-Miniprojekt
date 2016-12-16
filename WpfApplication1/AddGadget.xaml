@@ -5,16 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Gadget hinzufügen" Height="155.32" Width="300">
+        Title="Gadget hinzufügen" Height="322.341" Width="361.702">
     <Grid>
-        <TextBlock Text="Gadgetname eingeben" 
-                   Margin="59,10,77,44">
+        <TextBlock Text="Name: " 
+                   Height="30"
+                   Width="100"
+                   Margin="32,55,222,220" RenderTransformOrigin="0.535,1.727">
         </TextBlock>
         <TextBox Name="NamensEingabe" 
-                 Text="Name eintippen" 
-                 Margin="59,39,77,44"/>
+                 Height="30"
+                 Width="180"
+                 Margin="139,55,35,206"/>
+        <TextBlock Text="Hersteller: " 
+                   Height="30"
+                   Width="100"
+                   Margin="32,90,222,185" RenderTransformOrigin="0.535,1.727">
+        </TextBlock>
+        <TextBox Name="Hersteller" 
+                 Height="30"
+                 Width="180"
+                 Margin="139,89,35,172"/>
+        <TextBlock Text="Zustand: " 
+                   Height="30"
+                   Width="100"
+                   Margin="32,125,222,150" RenderTransformOrigin="0.535,1.727">
+        </TextBlock>
+        <ComboBox Name="Condition" 
+                 Height="30"
+                 Width="180"
+                 Margin="139,124,35,137">
+            <ComboBoxItem>New</ComboBoxItem>
+            <ComboBoxItem>Good</ComboBoxItem>
+            <ComboBoxItem>Damaged</ComboBoxItem>
+            <ComboBoxItem>Waste</ComboBoxItem>
+            <ComboBoxItem>Lost</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Text="Preis: " 
+                   Height="30"
+                   Width="100"
+                   Margin="32,160,222,115" RenderTransformOrigin="0.535,1.727">
+        </TextBlock>
+        <TextBox Name="Preis" 
+                 KeyDown="Preis_KeyDown"
+                 Height="30"
+                 Width="180"
+                 Margin="139,159,35,102"/>
+        <Button Name="Abbrechen"
+                Click="AbbrechenButton_Click"
+                Height="30"
+                Width="100"
+                Margin="32,205,222,36">
+            <TextBlock Text="Abbrechen"/>
+        </Button>
         <Button Name="GadgetErgänzen"
-                Margin="110,85,126,10">
+                Click="OkButton_Click"
+                Height="30"
+                Width="100"
+                Margin="219,205,35,36">
             <TextBlock Text="OK"/>
         </Button>
     </Grid>
