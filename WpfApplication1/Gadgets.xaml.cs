@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace WpfApplication1
 {
     /// <summary>
@@ -32,6 +33,23 @@ namespace WpfApplication1
             dgGadgets.ItemsSource = gadgets;
 
         }
+
+        private void AddGadget_Click(object sender, RoutedEventArgs e)
+        {
+            var gadgetWindow = new AddGadget();
+            var dialog = gadgetWindow.ShowDialog();
+
+            if (dialog = true)
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Alles ist abgebrochen");
+
+            }
+        }
+
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;

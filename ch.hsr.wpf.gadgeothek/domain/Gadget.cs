@@ -10,7 +10,7 @@ namespace ch.hsr.wpf.gadgeothek.domain
 {
     public class Gadget
     {
-
+        
         public string InventoryNumber { get; set; }
         public Condition Condition { get; set; }
         public double Price { get; set; }
@@ -50,6 +50,8 @@ namespace ch.hsr.wpf.gadgeothek.domain
                 return other.InventoryNumber == null;
             return InventoryNumber == other.InventoryNumber;
         }
+
+     
 
         public override string ToString()
         {
