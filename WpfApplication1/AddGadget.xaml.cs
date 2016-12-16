@@ -1,4 +1,5 @@
 ﻿using ch.hsr.wpf.gadgeothek.domain;
+using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +22,33 @@ namespace WpfApplication1
     public partial class AddGadget : Window
     {
         public Gadget EditedGadget { get; set; }
+        LibraryAdminService las;
 
         public AddGadget()
         {
             InitializeComponent();
 
-            EditedGadget = new Gadget("neues Gadget");          
+            EditedGadget = new Gadget("neues Gadget");
 
+            las = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch/");
+
+            long highestValue = 0;
+            List<Gadget> tabelle = las.GetAllGadgets();
+            //Inventorynumber erzeugen
+            for (  int i = 0; i < tabelle.Capacity; i++ )
+            {
+                long newNumber = long.Parse(tabelle[i].InventoryNumber);
+                if (highestValue < newNumber)
+                {
+                highestValue = newNumber;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            highestValue++;
+            EditedGadget.InventoryNumber = "" + highestValue;
             DataContext = this;
         }
 
@@ -49,11 +70,13 @@ namespace WpfApplication1
                 //newestGadget.Manufacturer = Hersteller.Text;
 
                 // Properties von EditedGadget werden via Data Binding automatisch zur Verfügung gestellt
-
                 //// TODO Condition anpassen
                 EditedGadget.Condition = (ch.hsr.wpf.gadgeothek.domain.Condition)Enum.Parse(typeof(ch.hsr.wpf.gadgeothek.domain.Condition), GadgetCondition.Text);
-
+                
+                // Hier wird Gadget eingefügt
+                las.AddGadget(EditedGadget);
                 DialogResult = true;
+
             }
         }
 

@@ -15,20 +15,26 @@
             <ColumnDefinition Width="109*"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
+        <TextBlock Text="Gadgetnummer: "
+                   Height="30" Margin="33,10,200,250"/>
+        <TextBlock Name="Number"
+                   Text="{Binding EditedGadget.InventoryNumber}"
+                   Height="30" Margin="141,10,1,250"/>
         <TextBlock Text="Name: "
-                   Margin="33,30,177,229.711" RenderTransformOrigin="0.535,1.727"/>
+                   Margin="33,55,177,205" 
+                   RenderTransformOrigin="0.535,1.727"/>
         <TextBox Name="NamensEingabe" 
                  Text="{Binding EditedGadget.Name}"
-                 Margin="139,30,1,229.711"/>
+                 Margin="139,55,1,205"/>
         <TextBlock Text="Hersteller: "
-                   Margin="33,75,177,184.711" RenderTransformOrigin="0.535,1.727"/>
+                   Margin="33,95,177,165" RenderTransformOrigin="0.535,1.727"/>
         <TextBox Name="Hersteller"
                  Text="{Binding EditedGadget.Manufacturer}"
-                 Margin="139,75,1,184.711"/>
+                 Margin="139,95,1,165"/>
         <TextBlock Text="Zustand: "
-                   Margin="33,130,177,129.711" RenderTransformOrigin="0.535,1.727"/>
+                   Margin="33,140,177,120" RenderTransformOrigin="0.535,1.727"/>
         <ComboBox Name="GadgetCondition"                 
-                 Margin="139,130,1,129.711">
+                 Margin="139,140,1,120">
             <ComboBoxItem IsSelected="True">New</ComboBoxItem>
             <ComboBoxItem>Good</ComboBoxItem>
             <ComboBoxItem>Damaged</ComboBoxItem>
@@ -36,11 +42,11 @@
             <ComboBoxItem>Lost</ComboBoxItem>
         </ComboBox>
         <TextBlock Text="Preis: "
-                   Margin="33,175,177,84.711" RenderTransformOrigin="0.535,1.727"/>
+                   Margin="33,185,177,75" RenderTransformOrigin="0.535,1.727"/>
         <TextBox Name="Preis" 
                  KeyDown="Preis_KeyDown"
                  Text="{Binding EditedGadget.Price}"
-                 Margin="139,175,1,84.711"/>
+                 Margin="139,185,1,75"/>
         <Button Name="Abbrechen"
                 Click="AbbrechenButton_Click"
                 Margin="34,231,176,28.711">
