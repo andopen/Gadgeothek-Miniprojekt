@@ -65,6 +65,16 @@ namespace WpfApplication1
         }
         private List<Key> AllowedKeys = new List<Key>()
         {
+            Key.NumPad0,
+            Key.NumPad1,
+            Key.NumPad2,
+            Key.NumPad3,
+            Key.NumPad4,
+            Key.NumPad5,
+            Key.NumPad6,
+            Key.NumPad7,
+            Key.NumPad8,
+            Key.NumPad9,
             Key.D0,
             Key.D1,
             Key.D2,
