@@ -27,7 +27,9 @@ namespace WpfApplication1
 
             LibraryAdminService lib = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch/");
 
-            List<Gadget> gadgets = lib.GetAllGadgets();
+            List<Loan> gadgets = lib.GetAllLoans();
+
+            dgGadgets.ItemsSource = gadgets;
 
         }
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)

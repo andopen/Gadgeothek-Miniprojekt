@@ -18,34 +18,22 @@
             </StackPanel>
 
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Text="ID" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
-                <TextBlock Text="Name" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0"/>
-                <TextBlock Text="Hersteller" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0"/>
-                <TextBlock Text="Preis" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="0"/>
-                <TextBlock Text="Zustand" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="0"/>
-                <TextBlock Text="Verfügbar ab" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="0"/>
-                <TextBlock Text="Ausgeleihen an" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="0"/>
+                <DataGrid Name="dgGadgets" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="100" Header="ID" Binding="{Binding Gadget.InventoryNumber}"/>
+                        <DataGridTextColumn Width="100" Header="Name" Binding="{Binding Gadget.Name}"/>
+                        <DataGridTextColumn Width="100" Header="Hersteller" Binding="{Binding Gadget.Manufacturer}"/>
+                        <DataGridTextColumn Width="100" Header="Preis" Binding="{Binding Gadget.Price}"/>
+                        <DataGridTextColumn Width="100" Header="Zustand" Binding="{Binding Gadget.Condition}"/>
+                        <DataGridTextColumn Width="100" Header="Verfügbar ab" Binding="{Binding OverDueDate}"/>
+                        <DataGridTextColumn Width="100" Header="Ausgeleihen an" Binding="{Binding Customer}"/>
+
+                    </DataGrid.Columns>
+                    
+                </DataGrid>
+
 
             </Grid>
-
         </DockPanel>
         
     </Grid>
