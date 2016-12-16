@@ -13,9 +13,10 @@
                    Margin="32,55,222,220" RenderTransformOrigin="0.535,1.727">
         </TextBlock>
         <TextBox Name="NamensEingabe" 
+                 Text="{Binding EditedGadget.Name}"
                  Height="30"
                  Width="180"
-                 Margin="139,55,35,206"/>
+                 Margin="137,55,37,206"/>
         <TextBlock Text="Hersteller: " 
                    Height="30"
                    Width="100"
@@ -23,6 +24,7 @@
         </TextBlock>
         <TextBox Name="Hersteller" 
                  Height="30"
+                 Text="{Binding EditedGadget.Manufacturer}"
                  Width="180"
                  Margin="139,89,35,172"/>
         <TextBlock Text="Zustand: " 
@@ -30,11 +32,11 @@
                    Width="100"
                    Margin="32,125,222,150" RenderTransformOrigin="0.535,1.727">
         </TextBlock>
-        <ComboBox Name="Condition" 
+        <ComboBox Name="GadgetCondition" 
                  Height="30"
-                 Width="180"
+                 Width="180"                 
                  Margin="139,124,35,137">
-            <ComboBoxItem>New</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">New</ComboBoxItem>
             <ComboBoxItem>Good</ComboBoxItem>
             <ComboBoxItem>Damaged</ComboBoxItem>
             <ComboBoxItem>Waste</ComboBoxItem>
@@ -47,6 +49,7 @@
         </TextBlock>
         <TextBox Name="Preis" 
                  KeyDown="Preis_KeyDown"
+                 Text="{Binding EditedGadget.Price}"
                  Height="30"
                  Width="180"
                  Margin="139,159,35,102"/>

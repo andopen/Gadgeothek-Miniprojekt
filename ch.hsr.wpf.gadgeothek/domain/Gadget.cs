@@ -63,7 +63,7 @@ namespace ch.hsr.wpf.gadgeothek.domain
 
         public string FullDescription()
         {
-            return $"{Name} [{InventoryNumber}] by {Manufacturer} - Condition: {Condition.ToString().ToUpper()}";
+            return $"{Name} [{InventoryNumber}] by {Manufacturer} - Condition: {Condition.ToString().ToUpper()} - Price: {Price}";
         }
     }
 
