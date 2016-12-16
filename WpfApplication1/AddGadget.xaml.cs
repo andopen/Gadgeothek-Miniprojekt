@@ -47,8 +47,7 @@ namespace WpfApplication1
                     break;
                 }
             }
-            highestValue++;
-            EditedGadget.InventoryNumber = "" + highestValue;
+            EditedGadget.InventoryNumber = "" + ++highestValue;
             DataContext = this;
         }
 
