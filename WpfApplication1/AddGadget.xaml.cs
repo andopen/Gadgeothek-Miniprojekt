@@ -20,35 +20,47 @@ namespace WpfApplication1
     /// </summary>
     public partial class AddGadget : Window
     {
+        public Gadget EditedGadget { get; set; }
+
         public AddGadget()
         {
             InitializeComponent();
 
-            
+            EditedGadget = new Gadget("neues Gadget");          
+
+            DataContext = this;
         }
-        private void AbbrechenButton_Click(object sender, RoutedEventArgs e)
+
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NamensEingabe.Equals(""))
+            if (EditedGadget.Name.Equals(""))
             {
                 MessageBox.Show("Bitte Namen eingeben");
-            } else if (Hersteller.Equals(""))
+            }
+            else if (EditedGadget.Manufacturer.Equals(""))
             {
                 MessageBox.Show("Bitte Hersteller eingeben");
-            } else  if (Condition.Equals(""))
-            {
-                MessageBox.Show("Bitte Zusand eingeben");
             }
             else
             {
-                Gadget newestGadget = new Gadget("");
-                newestGadget.Name = NamensEingabe.ToString();
-                newestGadget.Manufacturer = Hersteller.ToString();
-                if (Condition.Equals("New"))
-                {
-                    // TODO Condition anpassen
-                    newestGadget.Condition = 
-                }
+                //Gadget newestGadget = new Gadget("");
+                //newestGadget.Name = NamensEingabe.Text;
+                //newestGadget.Manufacturer = Hersteller.Text;
+
+                // Properties von EditedGadget werden via Data Binding automatisch zur Verfügung gestellt
+
+                //// TODO Condition anpassen
+                EditedGadget.Condition = (ch.hsr.wpf.gadgeothek.domain.Condition)Enum.Parse(typeof(ch.hsr.wpf.gadgeothek.domain.Condition), GadgetCondition.Text);
+
+                DialogResult = true;
             }
+        }
+
+        private void AbbrechenButton_Click(object sender, RoutedEventArgs e)
+        {
+           
+            DialogResult = false;
             
         }
         private List<Key> AllowedKeys = new List<Key>()
