@@ -39,9 +39,9 @@ namespace WpfApplication1
             var gadgetWindow = new AddGadget();
             var dialog = gadgetWindow.ShowDialog();
 
-            if (dialog = true)
+            if (dialog == true)
             {
-
+                Console.WriteLine("Neues Gadget erfasst");
             }
             else
             {
