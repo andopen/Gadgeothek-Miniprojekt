@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,6 +32,8 @@ namespace WpfApplication1
             List<Loan> gadgets = lib.GetAllLoans();
 
             dgGadgets.ItemsSource = gadgets;
+
+            Regex regex = new Regex("(?<WEAKDAY>Mon|Tue|Wed|Thu|Fri|Sat|Sun) (?<MONTH>[0-9]{1,2})/(?<DAY>[0-9]{1,2})/(?<YEAR>[0-9]*)");
 
         }
 
