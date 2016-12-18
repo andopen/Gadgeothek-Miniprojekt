@@ -6,6 +6,21 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="Gadget hinzufügen" Height="322.341" Width="361.702">
+    <Window.Resources>
+        <Style x:Key="TextBlockSize">
+            <Setter Property="TextBlock.Height" Value="30"/>
+            <Setter Property="TextBlock.Width" Value="90"/>
+        </Style>
+        <Style x:Key="TextBoxSize">
+            <Setter Property="TextBox.Height" Value="30"/>
+            <Setter Property="TextBlock.Width" Value="185"/>
+        </Style>
+        <Style x:Key="ButtonSize">
+            <Setter Property="Button.Height" Value="30"/>
+            <Setter Property="Button.Width" Value="120"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="290*"/>
@@ -16,25 +31,34 @@
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="Gadgetnummer: "
-                   Height="30" Margin="33,10,200,250"/>
+                   Style="{DynamicResource ResourceKey=TextBlockSize}"
+                   Height="30" Margin="24,10,213,250"/>
         <TextBlock Name="Number"
                    Text="{Binding EditedGadget.InventoryNumber}"
-                   Height="30" Margin="141,10,1,250"/>
+                   Style="{DynamicResource ResourceKey=TextBoxSize}"
+                   Margin="141,10,1,250"/>
         <TextBlock Text="Name: "
-                   Margin="33,55,177,205" 
+                   Style="{DynamicResource ResourceKey=TextBlockSize}"
+                   Margin="24,55,213,205" 
                    RenderTransformOrigin="0.535,1.727"/>
         <TextBox Name="NamensEingabe" 
                  Text="{Binding EditedGadget.Name}"
+                 Style="{StaticResource TextBoxSize}"
                  Margin="139,55,1,205"/>
         <TextBlock Text="Hersteller: "
-                   Margin="33,95,177,165" RenderTransformOrigin="0.535,1.727"/>
+                   Style="{DynamicResource ResourceKey=TextBlockSize}"
+                   Margin="24,95,213,165" 
+                   RenderTransformOrigin="0.535,1.727"/>
         <TextBox Name="Hersteller"
+                 Style="{DynamicResource ResourceKey=TextBoxSize}"
                  Text="{Binding EditedGadget.Manufacturer}"
                  Margin="139,95,1,165"/>
         <TextBlock Text="Zustand: "
-                   Margin="33,140,177,120" RenderTransformOrigin="0.535,1.727"/>
-        <ComboBox Name="GadgetCondition"                 
-                 Margin="139,140,1,120">
+                   Style="{DynamicResource ResourceKey=TextBlockSize}"
+                   Margin="24,140,213,120" RenderTransformOrigin="0.535,1.727"/>
+        <ComboBox Name="GadgetCondition"
+                  Style="{DynamicResource ResourceKey=TextBoxSize}"
+                  Margin="139,140,1,120">
             <ComboBoxItem IsSelected="True">New</ComboBoxItem>
             <ComboBoxItem>Good</ComboBoxItem>
             <ComboBoxItem>Damaged</ComboBoxItem>
@@ -42,19 +66,21 @@
             <ComboBoxItem>Lost</ComboBoxItem>
         </ComboBox>
         <TextBlock Text="Preis: "
-                   Margin="33,185,177,75" RenderTransformOrigin="0.535,1.727"/>
-        <TextBox Name="Preis" 
+                   Style="{DynamicResource ResourceKey=TextBlockSize}"
+                   Margin="24,185,213,75" RenderTransformOrigin="0.535,1.727"/>
+        <TextBox Name="Preis"
+                 Style="{DynamicResource ResourceKey=TextBoxSize}"
                  KeyDown="Preis_KeyDown"
                  Text="{Binding EditedGadget.Price}"
                  Margin="139,185,1,75"/>
         <Button Name="Abbrechen"
                 Click="AbbrechenButton_Click"
-                Margin="34,231,176,28.711">
+                Margin="25,231,175,28.711">
             <TextBlock Text="Abbrechen"/>
         </Button>
         <Button Name="GadgetErgänzen"
                 Click="OkButton_Click"
-                Margin="218,231,0,28.711">
+                Margin="200,231,0,25">
             <TextBlock Text="OK"/>
         </Button>
     </Grid>
