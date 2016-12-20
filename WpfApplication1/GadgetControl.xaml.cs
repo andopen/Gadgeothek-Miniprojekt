@@ -78,6 +78,35 @@ namespace WpfApplication1
             }
         }
 
+        private void RemoveGadget_Click(object sender, RoutedEventArgs e)
+        {
+            if (GadgetItems.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select one Gadget!");
+                return;
+            }
+            
+            if(GadgetItems.SelectedValue.GetType() == typeof(Gadget))
+            {
+                Gadget selectedGadget = (Gadget)GadgetItems.SelectedValue;
+                Console.WriteLine("selected gadget: " + selectedGadget.ToString());
+
+                string deleteConfirmation = "Do you really want to delete " + selectedGadget.Name + " " + selectedGadget.Manufacturer + " ?";
+
+                if (MessageBox.Show(deleteConfirmation, "Confirmation", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    if (!new LibraryAdminService(url).DeleteGadget(selectedGadget))
+                    {
+                        MessageBox.Show("Could not delete gadget: " + selectedGadget.Name + " " + selectedGadget.Manufacturer);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gadget deleted: " + selectedGadget.Name + " " + selectedGadget.Manufacturer);
+                    }
+                }
+            }     
+        }
+
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
