@@ -42,10 +42,6 @@ namespace WpfApplication1
                 {
                 highestValue = newNumber;
                 }
-                else
-                {
-                    break;
-                }
             }
             EditedGadget.InventoryNumber = "" + ++highestValue;
             DataContext = this;

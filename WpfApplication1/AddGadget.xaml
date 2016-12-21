@@ -74,6 +74,7 @@
                  Text="{Binding EditedGadget.Price}"
                  Margin="139,185,1,75"/>
         <Button Name="Abbrechen"
+                Style="{DynamicResource ResourceKey=ButtonSize}"
                 Click="AbbrechenButton_Click"
                 Margin="25,231,175,28.711">
             <TextBlock Text="Abbrechen"/>
