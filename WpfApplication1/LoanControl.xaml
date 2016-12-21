@@ -5,18 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApplication1"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-   >
-    <Grid>
-        <DataGrid IsReadOnly="True" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding LoanItem}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="KundenNr" Binding="{Binding CustomerId}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Customer.Name}"/>
-                <DataGridTextColumn Header="Ausleihen" Binding="{Binding Gadget.Name}"/>
-                <DataGridTextColumn Header="Loan-Datum" Binding="{Binding PickupDate,StringFormat={}{0:dd.MM.yyyy hh:mm}}"/>
-                <DataGridTextColumn Header="Return-Datum" Binding="{Binding OverDueDate,StringFormat={}{0:dd.MM.yyyy hh:mm}}"/>
-                <DataGridCheckBoxColumn IsReadOnly="True" Header="Hat überfällige" Binding="{Binding IsOverdue,Mode=OneWay}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+      >
+    <DataGrid Style="{StaticResource DataGridStyle}" ItemsSource="{Binding LoanItem}">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="KundenNr" Binding="{Binding CustomerId}"/>
+            <DataGridTextColumn Header="Name" Binding="{Binding Customer.Name}"/>
+            <DataGridTextColumn Header="Ausleihen" Binding="{Binding Gadget.Name}"/>
+            <DataGridTextColumn Header="Ausleihe-Datum" Binding="{Binding PickupDate,StringFormat={}{0:dd.MM.yyyy hh:mm}}"/>
+            <DataGridTextColumn Header="Rückgabe-Datum" Binding="{Binding OverDueDate,StringFormat={}{0:dd.MM.yyyy hh:mm}}"/>
+            <DataGridCheckBoxColumn Header="Hat überfällige" IsReadOnly="True" Binding="{Binding IsOverdue,Mode=OneWay}"/>
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>
