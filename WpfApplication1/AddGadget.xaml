@@ -5,84 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Gadget hinzufügen" Height="322.341" Width="361.702">
+        Title="Gadget hinzufügen" Height="300" Width="350">
     <Window.Resources>
-        <Style x:Key="TextBlockSize">
+        <Style x:Key="BlockSize">
             <Setter Property="TextBlock.Height" Value="30"/>
             <Setter Property="TextBlock.Width" Value="90"/>
+            <Setter Property="TextBlock.Margin" Value="2,2,2,2"/>
         </Style>
-        <Style x:Key="TextBoxSize">
+        <Style x:Key="BoxSize">
             <Setter Property="TextBox.Height" Value="30"/>
             <Setter Property="TextBlock.Width" Value="185"/>
+            <Setter Property="TextBlock.Margin" Value="2,2,2,2"/>
         </Style>
         <Style x:Key="ButtonSize">
             <Setter Property="Button.Height" Value="30"/>
             <Setter Property="Button.Width" Value="120"/>
+            <Setter Property="Button.Margin" Value="20,2,20,20"/>
         </Style>
     </Window.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="290*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="109*"/>
-            <ColumnDefinition Width="9*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="Gadgetnummer: "
-                   Style="{DynamicResource ResourceKey=TextBlockSize}"
-                   Height="30" Margin="24,10,213,250"/>
-        <TextBlock Name="Number"
-                   Text="{Binding EditedGadget.InventoryNumber}"
-                   Style="{DynamicResource ResourceKey=TextBoxSize}"
-                   Margin="141,10,1,250"/>
-        <TextBlock Text="Name: "
-                   Style="{DynamicResource ResourceKey=TextBlockSize}"
-                   Margin="24,55,213,205" 
-                   RenderTransformOrigin="0.535,1.727"/>
-        <TextBox Name="NamensEingabe" 
-                 Text="{Binding EditedGadget.Name}"
-                 Style="{StaticResource TextBoxSize}"
-                 Margin="139,55,1,205"/>
-        <TextBlock Text="Hersteller: "
-                   Style="{DynamicResource ResourceKey=TextBlockSize}"
-                   Margin="24,95,213,165" 
-                   RenderTransformOrigin="0.535,1.727"/>
-        <TextBox Name="Hersteller"
-                 Style="{DynamicResource ResourceKey=TextBoxSize}"
-                 Text="{Binding EditedGadget.Manufacturer}"
-                 Margin="139,95,1,165"/>
-        <TextBlock Text="Zustand: "
-                   Style="{DynamicResource ResourceKey=TextBlockSize}"
-                   Margin="24,140,213,120" RenderTransformOrigin="0.535,1.727"/>
-        <ComboBox Name="GadgetCondition"
-                  Style="{DynamicResource ResourceKey=TextBoxSize}"
-                  Margin="139,140,1,120">
-            <ComboBoxItem IsSelected="True">New</ComboBoxItem>
-            <ComboBoxItem>Good</ComboBoxItem>
-            <ComboBoxItem>Damaged</ComboBoxItem>
-            <ComboBoxItem>Waste</ComboBoxItem>
-            <ComboBoxItem>Lost</ComboBoxItem>
-        </ComboBox>
-        <TextBlock Text="Preis: "
-                   Style="{DynamicResource ResourceKey=TextBlockSize}"
-                   Margin="24,185,213,75" RenderTransformOrigin="0.535,1.727"/>
-        <TextBox Name="Preis"
-                 Style="{DynamicResource ResourceKey=TextBoxSize}"
-                 KeyDown="Preis_KeyDown"
-                 Text="{Binding EditedGadget.Price}"
-                 Margin="139,185,1,75"/>
-        <Button Name="Abbrechen"
-                Style="{DynamicResource ResourceKey=ButtonSize}"
-                Click="AbbrechenButton_Click"
-                Margin="25,231,175,28.711">
+    <DockPanel>
+        <StackPanel Margin="0,0,0,00"
+            DockPanel.Dock="Top"
+            Orientation="Horizontal">
+            <StackPanel Orientation="Vertical"
+                        Margin="20,20,5,0">
+                <TextBlock Text="Gadgetnummer: "
+                    Style="{DynamicResource ResourceKey=BlockSize}"/>
+                <TextBlock Text="Name: "
+                    Style="{DynamicResource ResourceKey=BlockSize}"/>
+                <TextBlock Text="Hersteller: "
+                    Style="{DynamicResource ResourceKey=BlockSize}"/>
+                <TextBlock Text="Zustand: "
+                    Style="{DynamicResource ResourceKey=BlockSize}"
+                    RenderTransformOrigin="0.535,1.727"/>
+                <TextBlock Text="Preis: "
+                    Style="{DynamicResource ResourceKey=BlockSize}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        Margin="5,20,20,0">
+                <TextBlock Name="Number"
+                    Style="{DynamicResource ResourceKey=BoxSize}"
+                    Text="{Binding EditedGadget.InventoryNumber}"/>
+                <TextBox Name="NamensEingabe" 
+                    Text="{Binding EditedGadget.Name}"
+                    Style="{StaticResource ResourceKey=BoxSize}"/>
+                <TextBox Name="Hersteller"
+                    Style="{DynamicResource ResourceKey=BoxSize}"
+                    Text="{Binding EditedGadget.Manufacturer}"/>
+                <ComboBox Name="GadgetCondition"
+                    Style="{DynamicResource ResourceKey=BoxSize}">
+                    <ComboBoxItem IsSelected="True">New</ComboBoxItem>
+                    <ComboBoxItem>Good</ComboBoxItem>
+                    <ComboBoxItem>Damaged</ComboBoxItem>
+                    <ComboBoxItem>Waste</ComboBoxItem>
+                    <ComboBoxItem>Lost</ComboBoxItem>
+                </ComboBox>
+                <TextBox 
+                    Name="Preis"
+                    Style="{DynamicResource ResourceKey=BoxSize}"
+                    KeyDown="Preis_KeyDown"
+                    Text="{Binding EditedGadget.Price}"/>
+            </StackPanel>
+        </StackPanel>
+
+
+
+
+        <Button DockPanel.Dock="Left"
+            Name="Abbrechen"
+            Style="{DynamicResource ResourceKey=ButtonSize}"
+            Click="AbbrechenButton_Click">
             <TextBlock Text="Abbrechen"/>
         </Button>
-        <Button Name="GadgetErgänzen"
-                Click="OkButton_Click"
-                Margin="200,231,0,25">
+        <Button DockPanel.Dock="Right"
+            Name="GadgetErgänzen"
+            Style="{DynamicResource ResourceKey=ButtonSize}"
+            Click="OkButton_Click">
             <TextBlock Text="OK"/>
         </Button>
-    </Grid>
+    </DockPanel>
 </Window>
