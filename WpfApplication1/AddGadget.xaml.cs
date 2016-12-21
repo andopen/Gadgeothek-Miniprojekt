@@ -35,9 +35,9 @@ namespace WpfApplication1
             long highestValue = 0;
             List<Gadget> tabelle = las.GetAllGadgets();
             //Inventorynumber erzeugen
-            for (  int i = 0; i < tabelle.Capacity; i++ )
+            foreach (  Gadget i in tabelle)
             {
-                long newNumber = long.Parse(tabelle[i].InventoryNumber);
+                long newNumber = long.Parse(i.InventoryNumber);
                 if (highestValue < newNumber)
                 {
                 highestValue = newNumber;
