@@ -8,13 +8,13 @@
       d:DesignHeight="300" d:DesignWidth="300"
    >
     <Grid>
-        <DataGrid  AutoGenerateColumns="False" ItemsSource="{Binding LoanItem}">
+        <DataGrid IsReadOnly="True" CanUserAddRows="false" AutoGenerateColumns="False" ItemsSource="{Binding LoanItem}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="KundenNr" Binding="{Binding CustomerId}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Customer.Name}"/>
                 <DataGridTextColumn Header="Ausleihen" Binding="{Binding Gadget.Name}"/>
-                <DataGridTextColumn Header="Loan-Datum" Binding="{Binding PickupDate}"/>
-                <DataGridTextColumn Header="Return-Datum" Binding="{Binding OverDueDate}"/>
+                <DataGridTextColumn Header="Loan-Datum" Binding="{Binding PickupDate,StringFormat={}{0:dd.MM.yyyy hh:mm}}"/>
+                <DataGridTextColumn Header="Return-Datum" Binding="{Binding OverDueDate,StringFormat={}{0:dd.MM.yyyy hh:mm}}"/>
                 <DataGridCheckBoxColumn IsReadOnly="True" Header="Hat überfällige" Binding="{Binding IsOverdue,Mode=OneWay}"/>
             </DataGrid.Columns>
         </DataGrid>
