@@ -8,8 +8,8 @@
       >
     <DockPanel>
         <StackPanel Style="{StaticResource StackPanelStyle}" DockPanel.Dock="Top">
-            <Button Style="{StaticResource ButtonSize}" Name="AddGadget" Click="AddGadget_Click" Content="Gadget hinzüfugen"/>
-            <Button Style="{StaticResource ButtonSize}" Click="RemoveGadget_Click" Content="Gadget entfernen"/>
+            <Button Style="{StaticResource ButtonStyle}" Name="AddGadget" Click="AddGadget_Click" Content="Gadget hinzüfugen"/>
+            <Button Style="{StaticResource ButtonStyle}" Click="RemoveGadget_Click" Content="Gadget entfernen"/>
         </StackPanel>
         <DataGrid Style="{StaticResource DataGridStyle}" Name="GadgetItems" ItemsSource="{Binding GadgetItem}">
             <DataGrid.Columns>

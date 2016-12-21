@@ -66,7 +66,7 @@ namespace WpfApplication1
 
                 // Properties von EditedGadget werden via Data Binding automatisch zur Verfügung gestellt
                 //// TODO Condition anpassen
-                EditedGadget.Condition = (ch.hsr.wpf.gadgeothek.domain.Condition)Enum.Parse(typeof(ch.hsr.wpf.gadgeothek.domain.Condition), GadgetCondition.Text);
+                EditedGadget.Condition = (ch.hsr.wpf.gadgeothek.domain.Condition)Enum.Parse(typeof(ch.hsr.wpf.gadgeothek.domain.Condition), GadgetCondition.Text );
                 
                 // Hier wird Gadget eingefügt
                 las.AddGadget(EditedGadget);

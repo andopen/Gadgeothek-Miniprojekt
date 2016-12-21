@@ -6,57 +6,37 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="Gadget hinzufügen" Height="300" Width="350">
-    <Window.Resources>
-        <Style x:Key="BlockSize">
-            
-            
-            <Setter Property="TextBlock.Height" Value="30"/>
-            <Setter Property="TextBlock.Width" Value="90"/>
-            <Setter Property="TextBlock.Margin" Value="2,2,2,2"/>
-        </Style>
-        <Style x:Key="BoxSize">
-            <Setter Property="TextBox.Height" Value="30"/>
-            <Setter Property="TextBlock.Width" Value="185"/>
-            <Setter Property="TextBlock.Margin" Value="2,2,2,2"/>
-        </Style>
-        <Style x:Key="ButtonSize">
-            <Setter Property="Button.Height" Value="30"/>
-            <Setter Property="Button.Width" Value="120"/>
-            <Setter Property="Button.Margin" Value="20,2,20,20"/>
-        </Style>
-    </Window.Resources>
 
     <DockPanel>
-        <StackPanel Margin="0,0,0,00"
-            DockPanel.Dock="Top"
+        <StackPanel DockPanel.Dock="Top"
             Orientation="Horizontal">
             <StackPanel Orientation="Vertical"
                         Margin="20,20,5,0">
                 <TextBlock Text="Gadgetnummer: "
-                    Style="{DynamicResource ResourceKey=BlockSize}"/>
+                    Style="{DynamicResource ResourceKey=BlockStyle}"/>
                 <TextBlock Text="Name: "
-                    Style="{DynamicResource ResourceKey=BlockSize}"/>
+                    Style="{DynamicResource ResourceKey=BlockStyle}"/>
                 <TextBlock Text="Hersteller: "
-                    Style="{DynamicResource ResourceKey=BlockSize}"/>
+                    Style="{DynamicResource ResourceKey=BlockStyle}"/>
                 <TextBlock Text="Zustand: "
-                    Style="{DynamicResource ResourceKey=BlockSize}"
+                    Style="{DynamicResource ResourceKey=BlockStyle}"
                     RenderTransformOrigin="0.535,1.727"/>
                 <TextBlock Text="Preis: "
-                    Style="{DynamicResource ResourceKey=BlockSize}"/>
+                    Style="{DynamicResource ResourceKey=BlockStyle}"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"
                         Margin="5,20,20,0">
                 <TextBlock Name="Number"
-                    Style="{DynamicResource ResourceKey=BoxSize}"
+                    Style="{DynamicResource ResourceKey=BoxStyle}"
                     Text="{Binding EditedGadget.InventoryNumber}"/>
                 <TextBox Name="NamensEingabe" 
                     Text="{Binding EditedGadget.Name}"
-                    Style="{StaticResource ResourceKey=BoxSize}"/>
+                    Style="{StaticResource ResourceKey=BoxStyle}"/>
                 <TextBox Name="Hersteller"
-                    Style="{DynamicResource ResourceKey=BoxSize}"
+                    Style="{DynamicResource ResourceKey=BoxStyle}"
                     Text="{Binding EditedGadget.Manufacturer}"/>
                 <ComboBox Name="GadgetCondition"
-                    Style="{DynamicResource ResourceKey=BoxSize}">
+                    Style="{DynamicResource ResourceKey=BoxStyle}">
                     <ComboBoxItem IsSelected="True">New</ComboBoxItem>
                     <ComboBoxItem>Good</ComboBoxItem>
                     <ComboBoxItem>Damaged</ComboBoxItem>
@@ -65,7 +45,7 @@
                 </ComboBox>
                 <TextBox 
                     Name="Preis"
-                    Style="{DynamicResource ResourceKey=BoxSize}"
+                    Style="{DynamicResource ResourceKey=BoxStyle}"
                     KeyDown="Preis_KeyDown"
                     Text="{Binding EditedGadget.Price}"/>
             </StackPanel>
@@ -76,13 +56,13 @@
 
         <Button DockPanel.Dock="Left"
             Name="Abbrechen"
-            Style="{DynamicResource ResourceKey=ButtonSize}"
+            Style="{DynamicResource ResourceKey=ButtonStyle}"
             Click="AbbrechenButton_Click">
             <TextBlock Text="Abbrechen"/>
         </Button>
         <Button DockPanel.Dock="Right"
             Name="GadgetErgänzen"
-            Style="{DynamicResource ResourceKey=ButtonSize}"
+            Style="{DynamicResource ResourceKey=ButtonStyle}"
             Click="OkButton_Click">
             <TextBlock Text="OK"/>
         </Button>
