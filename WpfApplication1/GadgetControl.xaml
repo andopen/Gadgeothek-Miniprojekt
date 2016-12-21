@@ -8,14 +8,14 @@
       >
     <DockPanel>
         <StackPanel Style="{StaticResource StackPanelStyle}" DockPanel.Dock="Top">
-            <Button Name="AddGadget"  Margin="0,0,10,0" HorizontalAlignment="Center" Width="Auto" Height="20" OpacityMask="Black" Click="AddGadget_Click" >Gadget hinzüfugen</Button>
-            <Button Margin="0,0,10,0" HorizontalAlignment="Center" Width="Auto" Content="Gadget entfernen" Click="RemoveGadget_Click"/>
+            <Button Style="{StaticResource ButtonSize}" Name="AddGadget" Click="AddGadget_Click" Content="Gadget hinzüfugen"/>
+            <Button Style="{StaticResource ButtonSize}" Click="RemoveGadget_Click" Content="Gadget entfernen"/>
         </StackPanel>
         <DataGrid Style="{StaticResource DataGridStyle}" Name="GadgetItems" ItemsSource="{Binding GadgetItem}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="InventoryNumber" Binding="{Binding InventoryNumber}"/>
-                <DataGridTextColumn Header="Condition" Binding="{Binding Condition}"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="InventurNummer" Binding="{Binding InventoryNumber}"/>
+                <DataGridTextColumn Header="Zustand" Binding="{Binding Condition}"/>
+                <DataGridTextColumn Header="Preis" Binding="{Binding Price}"/>
                 <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
             </DataGrid.Columns>
