@@ -8,6 +8,8 @@
         Title="Gadget hinzufügen" Height="300" Width="350">
     <Window.Resources>
         <Style x:Key="BlockSize">
+            
+            
             <Setter Property="TextBlock.Height" Value="30"/>
             <Setter Property="TextBlock.Width" Value="90"/>
             <Setter Property="TextBlock.Margin" Value="2,2,2,2"/>
