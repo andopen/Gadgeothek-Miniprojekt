@@ -22,7 +22,7 @@ namespace WpfApplication1
     public partial class AddGadget : Window
     {
         public Gadget EditedGadget { get; set; }
-        LibraryAdminService las;
+        LibraryAdminService lib;
 
         public AddGadget()
         {
@@ -30,17 +30,20 @@ namespace WpfApplication1
 
             EditedGadget = new Gadget("neues Gadget");
 
-            las = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch/");
-
-            long highestValue = 0;
-            List<Gadget> tabelle = las.GetAllGadgets();
+            lib = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch/");
             //Inventorynumber erzeugen
+            long highestValue = 0;
+            List<Gadget> tabelle = lib.GetAllGadgets();
+
             foreach (  Gadget i in tabelle)
             {
-                long newNumber = long.Parse(i.InventoryNumber);
-                if (highestValue < newNumber)
+                if (i.InventoryNumber != null)
                 {
-                highestValue = newNumber;
+                    long newNumber = long.Parse(i.InventoryNumber);
+                    if (highestValue < newNumber)
+                    {
+                        highestValue = newNumber;
+                    }
                 }
             }
             EditedGadget.InventoryNumber = "" + ++highestValue;
@@ -60,26 +63,19 @@ namespace WpfApplication1
             }
             else
             {
-                //Gadget newestGadget = new Gadget("");
-                //newestGadget.Name = NamensEingabe.Text;
-                //newestGadget.Manufacturer = Hersteller.Text;
-
-                // Properties von EditedGadget werden via Data Binding automatisch zur Verfügung gestellt
-                //// TODO Condition anpassen
+                // Gadget zusammenstellen
                 EditedGadget.Condition = (ch.hsr.wpf.gadgeothek.domain.Condition)Enum.Parse(typeof(ch.hsr.wpf.gadgeothek.domain.Condition), GadgetCondition.Text );
                 
                 // Hier wird Gadget eingefügt
-                las.AddGadget(EditedGadget);
+                lib.AddGadget(EditedGadget);
                 DialogResult = true;
 
             }
         }
 
         private void AbbrechenButton_Click(object sender, RoutedEventArgs e)
-        {
-           
+        {      
             DialogResult = false;
-            
         }
         private List<Key> AllowedKeys = new List<Key>()
         {
@@ -104,7 +100,7 @@ namespace WpfApplication1
             Key.D8,
             Key.D9,
             Key.Back,
-            Key.Decimal //TODO überprüfen ob Punkt bsp. 20.50
+            Key.Decimal
         };
 
         private void Preis_KeyDown(object sender, KeyEventArgs e)
