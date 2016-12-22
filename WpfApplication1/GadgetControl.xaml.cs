@@ -75,7 +75,6 @@ namespace WpfApplication1
             else
             {
                 Console.WriteLine("Alles ist abgebrochen");
-
             }
         }
 
@@ -93,7 +92,6 @@ namespace WpfApplication1
                 Console.WriteLine("selected gadget: " + selectedGadget.ToString());
 
                 string deleteConfirmation = "Do you really want to delete " + selectedGadget.Name + " " + selectedGadget.Manufacturer + " ?";
-
 
                 if (MessageBox.Show(deleteConfirmation, "Confirmation", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {

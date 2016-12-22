@@ -20,9 +20,6 @@ namespace WpfApplication1
 
         public LoanControl()
         {
-          
-            Console.WriteLine("serverURL:" + serverUrl);
-
             InitializeComponent();
             LoanItem = new ObservableCollection<Loan>();
             setData();
