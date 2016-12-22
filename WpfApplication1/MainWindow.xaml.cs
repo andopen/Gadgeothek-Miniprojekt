@@ -2,6 +2,7 @@
 using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,14 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public String serverUrl = ConfigurationSettings.AppSettings.Get("server");
+
         public MainWindow()
         {
             InitializeComponent();
 
-            LibraryAdminService lib = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch/");
+            LibraryAdminService lib = new LibraryAdminService(serverUrl);
 
             List<Loan> loans = lib.GetAllLoans();
 
