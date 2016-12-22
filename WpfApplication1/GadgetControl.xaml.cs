@@ -3,6 +3,7 @@ using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace WpfApplication1
     {
         public ObservableCollection<Gadget> GadgetItem { get; set; }
 
-        public String url = "http://mge7.dev.ifs.hsr.ch/";
+        public String serverUrl = ConfigurationSettings.AppSettings.Get("server");
 
         public GadgetControl()
         {
@@ -39,7 +40,7 @@ namespace WpfApplication1
         public void setData()
         {
             GadgetItem.Clear();
-            List<Gadget> gadgetList = new LibraryAdminService(url).GetAllGadgets();
+            List<Gadget> gadgetList = new LibraryAdminService(serverUrl).GetAllGadgets();
             foreach (Gadget gadget in gadgetList)
             {
                 GadgetItem.Add(gadget);
@@ -49,7 +50,7 @@ namespace WpfApplication1
         public void initWebSocket()
         {
             // web socket connection to listen to changes:
-            var client = new ch.hsr.wpf.gadgeothek.websocket.WebSocketClient(url);
+            var client = new ch.hsr.wpf.gadgeothek.websocket.WebSocketClient(serverUrl);
             client.NotificationReceived += (o, e) =>
             {
                 // demonstrate how these updates could be further used
@@ -96,7 +97,7 @@ namespace WpfApplication1
 
                 if (MessageBox.Show(deleteConfirmation, "Confirmation", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
-                    if (!new LibraryAdminService(url).DeleteGadget(selectedGadget))
+                    if (!new LibraryAdminService(serverUrl).DeleteGadget(selectedGadget))
                     {
                         MessageBox.Show("Could not delete gadget: " + selectedGadget.Name + " " + selectedGadget.Manufacturer);
                     }

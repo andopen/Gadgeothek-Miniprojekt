@@ -16,10 +16,13 @@ namespace WpfApplication1
     {
         public ObservableCollection<Loan> LoanItem { get; set; }
 
-        public String url = "http://mge7.dev.ifs.hsr.ch/";
+        public String serverUrl = ConfigurationSettings.AppSettings.Get("server");
 
         public LoanControl()
         {
+          
+            Console.WriteLine("serverURL:" + serverUrl);
+
             InitializeComponent();
             LoanItem = new ObservableCollection<Loan>();
             setData();
@@ -30,7 +33,7 @@ namespace WpfApplication1
         public void setData()
         {
             LoanItem.Clear();
-            List<Loan> loanList = new LibraryAdminService(url).GetAllLoans();
+            List<Loan> loanList = new LibraryAdminService(serverUrl).GetAllLoans();
             foreach(Loan loan in loanList)
             {
                 if (loan.IsLent)
@@ -43,7 +46,7 @@ namespace WpfApplication1
         public void initWebSocket()
         {
             // web socket connection to listen to changes:
-            var client = new ch.hsr.wpf.gadgeothek.websocket.WebSocketClient(url);
+            var client = new ch.hsr.wpf.gadgeothek.websocket.WebSocketClient(serverUrl);
             client.NotificationReceived += (o, e) =>
             {
                 // demonstrate how these updates could be further used

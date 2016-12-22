@@ -2,6 +2,7 @@
 using ch.hsr.wpf.gadgeothek.service;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,13 +25,16 @@ namespace WpfApplication1
         public Gadget EditedGadget { get; set; }
         LibraryAdminService lib;
 
+        public String serverUrl = ConfigurationSettings.AppSettings.Get("server");
+
+
         public AddGadget()
         {
             InitializeComponent();
 
             EditedGadget = new Gadget("neues Gadget");
 
-            lib = new LibraryAdminService("http://mge7.dev.ifs.hsr.ch/");
+            lib = new LibraryAdminService(serverUrl);
             //Inventorynumber erzeugen
             long highestValue = 0;
             List<Gadget> tabelle = lib.GetAllGadgets();
