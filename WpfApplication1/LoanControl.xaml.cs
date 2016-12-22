@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Configuration;
 using System;
 
-namespace WpfApplication1
+namespace GadgeothekAdmin
 {
     /// <summary>
     /// Interaktionslogik für LoanControl.xaml

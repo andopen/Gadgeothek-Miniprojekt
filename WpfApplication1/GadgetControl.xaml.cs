@@ -17,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1
+namespace GadgeothekAdmin
 {
     /// <summary>
     /// Interaktionslogik für GadgetControl.xaml

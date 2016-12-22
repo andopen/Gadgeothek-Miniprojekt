@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WpfApplication1
+namespace GadgeothekAdmin
 {
     /// <summary>
     /// Interaktionslogik für "App.xaml"
